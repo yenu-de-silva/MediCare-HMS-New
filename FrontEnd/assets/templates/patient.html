@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><!DOCTYPE html>
+        <html lang="en">
+        <head>
+        <meta charset="UTF-8">
+        <title>Patients - MediCare HMS</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<h1>Patient Records</h1>
+
+<section>
+    <h2>Add New Patient</h2>
+    <form action="/patients" method="post">
+        <label for="patientId">Patient ID:</label>
+        <input type="text" id="patientId" name="patientId" required>
+
+        <label for="fullName">Full Name:</label>
+        <input type="text" id="fullName" name="fullName" required>
+
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" required>
+
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" required>
+            <option value="">-- Select --</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+        </select>
+
+        <label for="contact">Contact Number:</label>
+        <input type="tel" id="contact" name="contact" required>
+
+        <label for="address">Address:</label>
+        <textarea id="address" name="address" rows="3" required></textarea>
+
+        <button type="submit">Add Patient</button>
+    </form>
+</section>
+
+<section>
+    <h2>Existing Patients</h2>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>Patient ID</th>
+            <th>Name</th>
+            <th>DOB</th>
+            <th>Gender</th>
+            <th>Contact</th>
+            <th>Address</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>P001</td>
+            <td>John Doe</td>
+            <td>1995-08-12</td>
+            <td>Male</td>
+            <td>0771234567</td>
+            <td>Colombo</td>
+        </tr>
+        <tr>
+            <td>P002</td>
+            <td>Mary Jane</td>
+            <td>1987-03-04</td>
+            <td>Female</td>
+            <td>0719876543</td>
+            <td>Negombo</td>
+        </tr>
+        <!-- Add more rows dynamically from backend -->
+        </tbody>
+    </table>
+</section>
+</body>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+    }
+
+    h1, h2 {
+        color: #333;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        max-width: 400px;
+        margin-bottom: 30px;
+    }
+
+    input, select, textarea, button {
+        margin-bottom: 10px;
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    table, th, td {
+        border: 1px solid #020101;
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: left;
+    }
+
+</style>
+</html>
+</title>
+</head>
+<body>
+
+</body>
+</html>
