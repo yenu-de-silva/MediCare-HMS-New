@@ -1,10 +1,250 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Manage Patients</title>
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+    />
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .table-info {
+            background-color: #17a2b8 !important;
+            color: white;
+            font-weight: 600;
+        }
+
+        table.table-bordered {
+            box-shadow: 0 4px 6px rgb(0 0 0 / 0.1);
+        }
+
+        /* Buttons */
+        button.btn-warning {
+            background-color: #f39c12;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+        button.btn-warning:hover {
+            background-color: #d68910;
+            color: #fff;
+        }
+
+        button.btn-danger {
+            background-color: #e74c3c;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+        button.btn-danger:hover {
+            background-color: #c0392b;
+            color: #fff;
+        }
+
+        button.btn-primary {
+            background-color: #007bff;
+            border: none;
+            transition: background-color 0.3s ease;
+            font-weight: 600;
+            padding: 0.5rem 1.2rem;
+        }
+        button.btn-primary:hover {
+            background-color: #0056b3;
+            color: #fff;
+        }
+
+        button.btn-secondary {
+            background-color: #6c757d;
+            border: none;
+            transition: background-color 0.3s ease;
+            padding: 0.5rem 1.2rem;
+        }
+        button.btn-secondary:hover {
+            background-color: #5a6268;
+            color: #fff;
+        }
+
+        /* Card Form Styling */
+        .card {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgb(0 0 0 / 0.1);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        #form-title {
+            color: #34495e;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        /* Form Inputs */
+        input[type="text"],
+        input[type="email"],
+        input[type="date"],
+        input[type="tel"],
+        select {
+            border-radius: 6px;
+            border: 1.5px solid #ced4da;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="date"]:focus,
+        input[type="tel"]:focus,
+        select:focus {
+            outline: none;
+            border-color: #17a2b8;
+            box-shadow: 0 0 5px rgba(23, 162, 184, 0.5);
+        }
+
+        /* Responsive tweaks */
+        @media (max-width: 768px) {
+            .card {
+                padding: 20px;
+                max-width: 100%;
+            }
+
+            table {
+                font-size: 14px;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
 </head>
 <body>
-$END$
+<div class="container my-5">
+    <h1 class="mb-4">Manage Patients</h1>
+
+    <!-- Patients Table -->
+    <div class="mb-4">
+        <table class="table table-bordered table-hover">
+            <thead class="table-info">
+            <tr>
+                <th>#</th>
+                <th>Patient Name</th>
+                <th>Date of Birth</th>
+                <th>Gender</th>
+                <th>Contact Number</th>
+                <th>Email</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody id="patients-table-body">
+            <tr>
+                <td>1</td>
+                <td>Michael Fernando</td>
+                <td>1980-06-12</td>
+                <td>Male</td>
+                <td>+94 77 123 4567</td>
+                <td>michael@example.com</td>
+                <td>
+                    <button class="btn btn-sm btn-warning me-2">Edit</button>
+                    <button class="btn btn-sm btn-danger">Delete</button>
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Samantha Silva</td>
+                <td>1992-11-03</td>
+                <td>Female</td>
+                <td>+94 71 765 4321</td>
+                <td>samantha@example.com</td>
+                <td>
+                    <button class="btn btn-sm btn-warning me-2">Edit</button>
+                    <button class="btn btn-sm btn-danger">Delete</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Add / Edit Patient Form -->
+    <div class="card p-4">
+        <h4 id="form-title">Add New Patient</h4>
+        <form id="patient-form">
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="patient-name" class="form-label">Patient Name</label>
+                    <input
+                            type="text"
+                            id="patient-name"
+                            name="patientName"
+                            class="form-control"
+                            required
+                            placeholder="Enter full name"
+                    />
+                </div>
+                <div class="col-md-6">
+                    <label for="patient-dob" class="form-label">Date of Birth</label>
+                    <input
+                            type="date"
+                            id="patient-dob"
+                            name="patientDOB"
+                            class="form-control"
+                            required
+                    />
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="patient-gender" class="form-label">Gender</label>
+                    <select id="patient-gender" name="patientGender" class="form-select" required>
+                        <option value="">Select gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label for="patient-contact" class="form-label">Contact Number</label>
+                    <input
+                            type="tel"
+                            id="patient-contact"
+                            name="patientContact"
+                            class="form-control"
+                            placeholder="+94 7X XXX XXXX"
+                    />
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="patient-email" class="form-label">Email</label>
+                <input
+                        type="email"
+                        id="patient-email"
+                        name="patientEmail"
+                        class="form-control"
+                        placeholder="example@example.com"
+                />
+            </div>
+
+            <input type="hidden" id="patient-id" />
+            <button type="submit" class="btn btn-primary">Save Patient</button>
+            <button type="reset" class="btn btn-secondary ms-2">Clear</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    // JS for handling form submission, editing, deleting can go here
+</script>
 </body>
 </html>

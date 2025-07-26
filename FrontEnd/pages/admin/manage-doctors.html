@@ -1,10 +1,370 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Manage Doctors</title>
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+    />
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .table-success {
+            background-color: #28a745 !important;
+            color: white;
+            font-weight: 600;
+        }
+
+        table.table-bordered {
+            box-shadow: 0 4px 6px rgb(0 0 0 / 0.1);
+        }
+
+        /* Buttons */
+        button.btn-warning {
+            background-color: #f39c12;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+        button.btn-warning:hover {
+            background-color: #d68910;
+            color: #fff;
+        }
+
+        button.btn-danger {
+            background-color: #e74c3c;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+        button.btn-danger:hover {
+            background-color: #c0392b;
+            color: #fff;
+        }
+
+        button.btn-primary {
+            background-color: #007bff;
+            border: none;
+            transition: background-color 0.3s ease;
+            font-weight: 600;
+            padding: 0.5rem 1.2rem;
+        }
+        button.btn-primary:hover {
+            background-color: #0056b3;
+            color: #fff;
+        }
+
+        button.btn-secondary {
+            background-color: #6c757d;
+            border: none;
+            transition: background-color 0.3s ease;
+            padding: 0.5rem 1.2rem;
+        }
+        button.btn-secondary:hover {
+            background-color: #5a6268;
+            color: #fff;
+        }
+
+        /* Card Form Styling */
+        .card {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgb(0 0 0 / 0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        #form-title {
+            color: #34495e;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        /* Form Inputs */
+        input[type="text"],
+        input[type="tel"],
+        select {
+            border-radius: 6px;
+            border: 1.5px solid #ced4da;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="tel"]:focus,
+        select:focus {
+            outline: none;
+            border-color: #28a745;
+            box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
+        }
+
+        /* Responsive tweaks */
+        @media (max-width: 768px) {
+            .card {
+                padding: 20px;
+                max-width: 100%;
+            }
+
+            table {
+                font-size: 14px;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
 </head>
 <body>
-$END$
+<div class="container my-5">
+    <h1 class="mb-4">Manage Doctors</h1>
+
+    <!-- Doctors Table -->
+    <div class="mb-4">
+        <table class="table table-bordered table-hover">
+            <thead class="table-success">
+            <tr>
+                <th>#</th>
+                <th>Doctor Name</th>
+                <th>Specialization</th>
+                <th>Department</th>
+                <th>Contact</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody id="doctors-table-body">
+            <!-- Example rows -->
+            <tr>
+                <td>1</td>
+                <td>Dr. Samantha Perera</td>
+                <td>Cardiologist</td>
+                <td>Cardiology</td>
+                <td>+94 77 123 4567</td>
+                <td>
+                    <button class="btn btn-sm btn-warning me-2">Edit</button>
+                    <button class="btn btn-sm btn-danger">Delete</button>
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Dr. Nimal Silva</td>
+                <td>Neurologist</td>
+                <td>Neurology</td>
+                <td>+94 71 765 4321</td>
+                <td>
+                    <button class="btn btn-sm btn-warning me-2">Edit</button>
+                    <button class="btn btn-sm btn-danger">Delete</button>
+                </td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Dr. Kasun Jayawardena</td>
+                <td>Orthopedic Surgeon</td>
+                <td>Orthopedics</td>
+                <td>+94 71 111 2222</td>
+                <td>
+                    <button class="btn btn-sm btn-warning me-2">Edit</button>
+                    <button class="btn btn-sm btn-danger">Delete</button>
+                </td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Dr. Anusha Fernando</td>
+                <td>Dermatologist</td>
+                <td>Dermatology</td>
+                <td>+94 77 333 4444</td>
+                <td>
+                    <button class="btn btn-sm btn-warning me-2">Edit</button>
+                    <button class="btn btn-sm btn-danger">Delete</button>
+                </td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Dr. Ruwan Wijesinghe</td>
+                <td>General Physician</td>
+                <td>General Medicine</td>
+                <td>+94 71 555 6666</td>
+                <td>
+                    <button class="btn btn-sm btn-warning me-2">Edit</button>
+                    <button class="btn btn-sm btn-danger">Delete</button>
+                </td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Dr. Chamara Silva</td>
+                <td>Pediatrician</td>
+                <td>Paediatrics</td>
+                <td>+94 77 777 8888</td>
+                <td>
+                    <button class="btn btn-sm btn-warning me-2">Edit</button>
+                    <button class="btn btn-sm btn-danger">Delete</button>
+                </td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>Dr. Sanduni Perera</td>
+                <td>ENT Specialist</td>
+                <td>ENT</td>
+                <td>+94 71 999 0000</td>
+                <td>
+                    <button class="btn btn-sm btn-warning me-2">Edit</button>
+                    <button class="btn btn-sm btn-danger">Delete</button>
+                </td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>Dr. Nishantha Karunaratne</td>
+                <td>Endocrinologist</td>
+                <td>Endocrinology</td>
+                <td>+94 77 121 2121</td>
+                <td>
+                    <button class="btn btn-sm btn-warning me-2">Edit</button>
+                    <button class="btn btn-sm btn-danger">Delete</button>
+                </td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>Dr. Madhawa De Silva</td>
+                <td>Psychiatrist</td>
+                <td>Psychiatry</td>
+                <td>+94 71 343 4343</td>
+                <td>
+                    <button class="btn btn-sm btn-warning me-2">Edit</button>
+                    <button class="btn btn-sm btn-danger">Delete</button>
+                </td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>Dr. Kavindi Ranasinghe</td>
+                <td>Ophthalmologist</td>
+                <td>Ophthalmology</td>
+                <td>+94 77 565 6565</td>
+                <td>
+                    <button class="btn btn-sm btn-warning me-2">Edit</button>
+                    <button class="btn btn-sm btn-danger">Delete</button>
+                </td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>Dr. Tharindu Kumara</td>
+                <td>Radiologist</td>
+                <td>Radiology</td>
+                <td>+94 71 787 8787</td>
+                <td>
+                    <button class="btn btn-sm btn-warning me-2">Edit</button>
+                    <button class="btn btn-sm btn-danger">Delete</button>
+                </td>
+            </tr>
+            <tr>
+                <td>12</td>
+                <td>Dr. Ishara Jayasinghe</td>
+                <td>Surgeon</td>
+                <td>Surgery</td>
+                <td>+94 77 909 0909</td>
+                <td>
+                    <button class="btn btn-sm btn-warning me-2">Edit</button>
+                    <button class="btn btn-sm btn-danger">Delete</button>
+                </td>
+            </tr>
+            <tr>
+                <td>13</td>
+                <td>Dr. Hiran Fernando</td>
+                <td>Oncologist</td>
+                <td>Oncology</td>
+                <td>+94 71 101 0101</td>
+                <td>
+                    <button class="btn btn-sm btn-warning me-2">Edit</button>
+                    <button class="btn btn-sm btn-danger">Delete</button>
+                </td>
+            </tr>
+            <tr>
+                <td>14</td>
+                <td>Dr. Dilani Silva</td>
+                <td>Nephrologist</td>
+                <td>Nephrology</td>
+                <td>+94 77 202 0202</td>
+                <td>
+                    <button class="btn btn-sm btn-warning me-2">Edit</button>
+                    <button class="btn btn-sm btn-danger">Delete</button>
+                </td>
+            </tr>
+            <tr>
+                <td>15</td>
+                <td>Dr. Kasun Ranatunga</td>
+                <td>Gastroenterologist</td>
+                <td>Gastroenterology</td>
+                <td>+94 71 303 0303</td>
+                <td>
+                    <button class="btn btn-sm btn-warning me-2">Edit</button>
+                    <button class="btn btn-sm btn-danger">Delete</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Add / Edit Doctor Form -->
+    <div class="card p-4">
+        <h4 id="form-title">Add New Doctor</h4>
+        <form id="doctor-form">
+            <div class="mb-3">
+                <label for="doctor-name" class="form-label">Doctor Name</label>
+                <input
+                        type="text"
+                        id="doctor-name"
+                        name="doctorName"
+                        class="form-control"
+                        required
+                        placeholder="Enter doctor's full name"
+                />
+            </div>
+            <div class="mb-3">
+                <label for="doctor-specialization" class="form-label">Specialization</label>
+                <input
+                        type="text"
+                        id="doctor-specialization"
+                        name="doctorSpecialization"
+                        class="form-control"
+                        placeholder="e.g., Cardiologist"
+                />
+            </div>
+            <div class="mb-3">
+                <label for="doctor-department" class="form-label">Department</label>
+                <select id="doctor-department" name="doctorDepartment" class="form-select" required>
+                    <option value="">Select department</option>
+                    <option value="Cardiology">Cardiology</option>
+                    <option value="Neurology">Neurology</option>
+                    <option value="Orthopedics">Orthopedics</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="doctor-contact" class="form-label">Contact Number</label>
+                <input
+                        type="tel"
+                        id="doctor-contact"
+                        name="doctorContact"
+                        class="form-control"
+                        placeholder="+94 7X XXX XXXX"
+                />
+            </div>
+            <input type="hidden" id="doctor-id" />
+            <button type="submit" class="btn btn-primary">Save Doctor</button>
+            <button type="reset" class="btn btn-secondary ms-2">Clear</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    // Add JS here for form submission, edit, delete handling
+</script>
 </body>
 </html>
