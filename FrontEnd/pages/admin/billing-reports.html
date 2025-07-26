@@ -1,10 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>MediCare+ - Billing Reports</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #f4f7fa;
+            padding: 30px;
+            color: #333;
+        }
+
+        header {
+            background: #764ba2;
+            color: white;
+            padding: 20px 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 24px;
+        }
+
+        .billing-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .billing-table thead {
+            background-color: #667eea;
+            color: white;
+        }
+
+        .billing-table th, .billing-table td {
+            padding: 15px 20px;
+            text-align: left;
+            font-size: 15px;
+        }
+
+        .billing-table tbody tr {
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .billing-table tbody tr:hover {
+            background-color: #f9f9f9;
+        }
+
+        .badge {
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .badge.paid {
+            background-color: #4caf50;
+            color: white;
+        }
+
+        .badge.unpaid {
+            background-color: #f44336;
+            color: white;
+        }
+
+        .badge.pending {
+            background-color: #ff9800;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .billing-table th, .billing-table td {
+                font-size: 13px;
+                padding: 10px;
+            }
+
+            header h1 {
+                font-size: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
-$END$
+
+<header>
+    <h1>💳 Billing & Payment Reports</h1>
+</header>
+
+<table class="billing-table">
+    <thead>
+    <tr>
+        <th>Patient Name</th>
+        <th>Service</th>
+        <th>Amount (LKR)</th>
+        <th>Status</th>
+        <th>Date</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>John Smith</td>
+        <td>Cardiology Checkup</td>
+        <td>5,000</td>
+        <td><span class="badge paid">Paid</span></td>
+        <td>2025-07-20</td>
+    </tr>
+    <tr>
+        <td>Amara Fernando</td>
+        <td>Dental Cleaning</td>
+        <td>3,200</td>
+        <td><span class="badge unpaid">Unpaid</span></td>
+        <td>2025-07-21</td>
+    </tr>
+    <tr>
+        <td>Isuru Jayasinghe</td>
+        <td>General Consultation</td>
+        <td>1,500</td>
+        <td><span class="badge pending">Pending</span></td>
+        <td>2025-07-22</td>
+    </tr>
+    <tr>
+        <td>Naduni Lakmali</td>
+        <td>ECG Report</td>
+        <td>2,000</td>
+        <td><span class="badge paid">Paid</span></td>
+        <td>2025-07-23</td>
+    </tr>
+    <tr>
+        <td>Viraj Madushanka</td>
+        <td>X-Ray</td>
+        <td>4,200</td>
+        <td><span class="badge paid">Paid</span></td>
+        <td>2025-07-24</td>
+    </tr>
+    <tr>
+        <td>Maleesha Perera</td>
+        <td>Blood Test</td>
+        <td>2,800</td>
+        <td><span class="badge unpaid">Unpaid</span></td>
+        <td>2025-07-25</td>
+    </tr>
+    <tr>
+        <td>Thilina Jayawardena</td>
+        <td>Orthopedic Consultation</td>
+        <td>6,500</td>
+        <td><span class="badge paid">Paid</span></td>
+        <td>2025-07-26</td>
+    </tr>
+    <tr>
+        <td>Hansika Wickramasinghe</td>
+        <td>ENT Checkup</td>
+        <td>2,300</td>
+        <td><span class="badge pending">Pending</span></td>
+        <td>2025-07-27</td>
+    </tr>
+    </tbody>
+</table>
+
 </body>
 </html>

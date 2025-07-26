@@ -1,10 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>MediCare+ Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f4f7fa;
+            color: #333;
+        }
+
+        header {
+            background-color: #2575fc;
+            color: white;
+            padding: 20px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 24px;
+        }
+
+        .sidebar {
+            width: 220px;
+            background-color: #fff;
+            height: 100vh;
+            padding: 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            border-right: 1px solid #e0e0e0;
+        }
+
+        .sidebar h3 {
+            margin-bottom: 20px;
+            color: #2575fc;
+        }
+
+        .sidebar a {
+            display: block;
+            margin-bottom: 12px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover {
+            color: #2575fc;
+        }
+
+        .main-content {
+            margin-left: 240px;
+            padding: 30px;
+        }
+
+        .card {
+            background-color: #fff;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .card h2 {
+            margin-bottom: 10px;
+            color: #2575fc;
+        }
+
+        .stats {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .stat-box {
+            flex: 1;
+            min-width: 180px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .stat-box h3 {
+            font-size: 26px;
+            margin-bottom: 5px;
+        }
+
+        .stat-box span {
+            font-size: 14px;
+            color: rgba(255,255,255,0.8);
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                position: relative;
+                width: 100%;
+                height: auto;
+                border-right: none;
+                border-bottom: 1px solid #ccc;
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 20px;
+            }
+
+            .stats {
+                flex-direction: column;
+            }
+        }
+    </style>
 </head>
 <body>
-$END$
+
+<header>
+    <h1>🏥 MediCare+ Dashboard</h1>
+    <div>
+        <span>👤 Dr. Silva</span>
+    </div>
+</header>
+
+<div class="sidebar">
+    <h3>Navigation</h3>
+    <a href="dashboard.html">🏠 Dashboard</a>
+    <a href="appointments.html">📅 Appointments</a>
+    <a href="patients.html">🧑‍🤝‍🧑 Patients</a>
+    <a href="schedule.html">🕒 Doctor Schedule</a>
+    <a href="reports.html">📈 Reports</a>
+    <a href="logout.html">🚪 Logout</a>
+</div>
+
+<div class="main-content">
+    <div class="card">
+        <h2>Welcome back, Doctor!</h2>
+        <p>Here’s a summary of today’s activity:</p>
+    </div>
+
+    <div class="stats">
+        <div class="stat-box">
+            <h3>12</h3>
+            <span>Appointments Today</span>
+        </div>
+        <div class="stat-box">
+            <h3>8</h3>
+            <span>Patients Visited</span>
+        </div>
+        <div class="stat-box">
+            <h3>3</h3>
+            <span>Pending Reports</span>
+        </div>
+        <div class="stat-box">
+            <h3>5</h3>
+            <span>Upcoming Appointments</span>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>

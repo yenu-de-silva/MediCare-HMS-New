@@ -1,4 +1,5 @@
 package org.example.Dto;
 
-public class LoginRequest {
+public class LoginRequestDTO
+{
 }

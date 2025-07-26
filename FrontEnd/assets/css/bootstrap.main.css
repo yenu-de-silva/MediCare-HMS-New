@@ -1,0 +1,66 @@
+/* bootstrap.main.css */
+
+/* Override primary color to a custom shade */
+:root {
+    --bs-primary: #0d6efd;
+    --bs-primary-rgb: 13, 110, 253;
+    --bs-secondary: #6c757d;
+    --bs-success: #198754;
+    --bs-danger: #dc3545;
+}
+
+/* Buttons customization */
+.btn-primary {
+    background-color: var(--bs-primary);
+    border-color: var(--bs-primary);
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover, .btn-primary:focus {
+    background-color: #0b5ed7;
+    border-color: #0a58ca;
+}
+
+/* Cards style */
+.card {
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+}
+
+/* Tables header */
+.table-primary {
+    background-color: var(--bs-primary) !important;
+    color: white;
+    font-weight: 600;
+}
+
+/* Table striped rows */
+.table-striped > tbody > tr:nth-of-type(odd) {
+    background-color: #f8f9fa;
+}
+
+/* Form controls rounded corners */
+.form-control {
+    border-radius: 6px;
+    border: 1.5px solid #ced4da;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: var(--bs-primary);
+    box-shadow: 0 0 5px rgba(13, 110, 253, 0.5);
+}
+
+/* Responsive utilities */
+@media (max-width: 768px) {
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}

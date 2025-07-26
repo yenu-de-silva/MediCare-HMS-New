@@ -2,9 +2,313 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediCare Hospital - Login</title>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+    }
+
+    .login-container {
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        overflow: hidden;
+        width: 100%;
+        max-width: 900px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        min-height: 500px;
+    }
+
+    .login-form {
+        padding: 60px 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .login-visual {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .hospital-icon {
+        font-size: 120px;
+        color: rgba(255,255,255,0.9);
+        margin-bottom: 20px;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        margin-bottom: 40px;
+    }
+
+    .logo-icon {
+        font-size: 32px;
+        color: #4facfe;
+        margin-right: 10px;
+    }
+
+    .logo h1 {
+        color: #333;
+        font-size: 24px;
+        font-weight: 600;
+    }
+
+    .form-group {
+        margin-bottom: 25px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        color: #555;
+        font-weight: 500;
+    }
+
+    .form-group input {
+        width: 100%;
+        padding: 15px;
+        border: 2px solid #e1e5e9;
+        border-radius: 10px;
+        font-size: 16px;
+        transition: all 0.3s ease;
+        background: #f8f9fa;
+    }
+
+    .form-group input:focus {
+        outline: none;
+        border-color: #4facfe;
+        background: white;
+        box-shadow: 0 0 0 3px rgba(79, 172, 254, 0.1);
+    }
+
+    .user-type {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 25px;
+    }
+
+    .user-type-btn {
+        flex: 1;
+        padding: 12px;
+        border: 2px solid #e1e5e9;
+        background: #f8f9fa;
+        border-radius: 10px;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 500;
+    }
+
+    .user-type-btn.active {
+        border-color: #4facfe;
+        background: #4facfe;
+        color: white;
+    }
+
+    .login-btn {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        color: white;
+        padding: 15px;
+        border: none;
+        border-radius: 10px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-bottom: 20px;
+    }
+
+    .login-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(79, 172, 254, 0.3);
+    }
+
+    .form-links {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .form-links a {
+        color: #4facfe;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+    }
+
+    .form-links a:hover {
+        color: #2196F3;
+    }
+
+    .divider {
+        margin: 0 10px;
+        color: #ccc;
+    }
+
+    @media (max-width: 768px) {
+        .login-container {
+            grid-template-columns: 1fr;
+        }
+
+        .login-visual {
+            display: none;
+        }
+
+        .login-form {
+            padding: 40px 30px;
+        }
+    }
+
+    .floating-shapes {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
+    .shape {
+        position: absolute;
+        background: rgba(255,255,255,0.1);
+        border-radius: 50%;
+        animation: float 6s ease-in-out infinite;
+    }
+
+    .shape:nth-child(1) {
+        width: 80px;
+        height: 80px;
+        top: 20%;
+        left: 20%;
+        animation-delay: 0s;
+    }
+
+    .shape:nth-child(2) {
+        width: 60px;
+        height: 60px;
+        top: 60%;
+        right: 20%;
+        animation-delay: 2s;
+    }
+
+    .shape:nth-child(3) {
+        width: 100px;
+        height: 100px;
+        bottom: 20%;
+        left: 30%;
+        animation-delay: 4s;
+    }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-20px); }
+    }
+
+</style>
 </head>
 <body>
+<div class="login-container">
+    <div class="login-form">
+        <div class="logo">
+            <div class="logo-icon">🏥</div>
+            <h1>MediCare Hospital</h1>
+        </div>
 
+        <h2 style="margin-bottom: 30px; color: #333;">Welcome Back</h2>
+
+        <div class="user-type">
+            <div class="user-type-btn active" onclick="selectUserType('patient')">Patient</div>
+            <div class="user-type-btn" onclick="selectUserType('doctor')">Doctor</div>
+            <div class="user-type-btn" onclick="selectUserType('admin')">Admin</div>
+        </div>
+
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <button type="submit" class="login-btn">Sign In</button>
+        </form>
+
+        <div class="form-links">
+            <a href="forgot-password.html">Forgot Password?</a>
+            <span class="divider">|</span>
+            <a href="register.html">Create Account</a>
+        </div>
+    </div>
+
+    <div class="login-visual">
+        <div class="floating-shapes">
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+        </div>
+        <div style="text-align: center; z-index: 10;">
+            <div class="hospital-icon">🏥</div>
+            <h2 style="color: white; margin-bottom: 10px;">Healthcare Management</h2>
+            <p style="color: rgba(255,255,255,0.8); font-size: 18px;">Connecting patients, doctors, and care</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    let selectedUserType = 'patient';
+
+    function selectUserType(type) {
+        selectedUserType = type;
+        const buttons = document.querySelectorAll('.user-type-btn');
+        buttons.forEach(btn => btn.classList.remove('active'));
+        event.target.classList.add('active');
+    }
+
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        if (email && password) {
+            // Simulate login process
+            document.querySelector('.login-btn').textContent = 'Signing In...';
+
+            setTimeout(() => {
+                // Redirect based on user type
+                switch(selectedUserType) {
+                    case 'patient':
+                        window.location.href = '../patient/dashboard.html';
+                        break;
+                    case 'doctor':
+                        window.location.href = '../doctor/dashboard.html';
+                        break;
+                    case 'admin':
+                        window.location.href = '../admin/dashboard.html';
+                        break;
+                }
+            }, 1500);
+        }
+    });
+</script>
 </body>
 </html>

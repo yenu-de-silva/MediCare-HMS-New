@@ -1,10 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Manage Departments</title>
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+    />
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .table-primary {
+            background-color: #4a90e2 !important;
+            color: white;
+            font-weight: 600;
+        }
+
+        table.table-bordered {
+            box-shadow: 0 4px 6px rgb(0 0 0 / 0.1);
+        }
+
+        /* Buttons */
+        button.btn-warning {
+            background-color: #f39c12;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+        button.btn-warning:hover {
+            background-color: #d68910;
+            color: #fff;
+        }
+
+        button.btn-danger {
+            background-color: #e74c3c;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+        button.btn-danger:hover {
+            background-color: #c0392b;
+            color: #fff;
+        }
+
+        button.btn-primary {
+            background-color: #007bff;
+            border: none;
+            transition: background-color 0.3s ease;
+            font-weight: 600;
+            padding: 0.5rem 1.2rem;
+        }
+        button.btn-primary:hover {
+            background-color: #0056b3;
+            color: #fff;
+        }
+
+        button.btn-secondary {
+            background-color: #6c757d;
+            border: none;
+            transition: background-color 0.3s ease;
+            padding: 0.5rem 1.2rem;
+        }
+        button.btn-secondary:hover {
+            background-color: #5a6268;
+            color: #fff;
+        }
+
+        /* Card Form Styling */
+        .card {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgb(0 0 0 / 0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        #form-title {
+            color: #34495e;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        /* Form Inputs */
+        input[type="text"],
+        textarea {
+            border-radius: 6px;
+            border: 1.5px solid #ced4da;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #4a90e2;
+            box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+        }
+
+        /* Responsive tweaks */
+        @media (max-width: 768px) {
+            .card {
+                padding: 20px;
+                max-width: 100%;
+            }
+
+            table {
+                font-size: 14px;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
 </head>
 <body>
-$END$
+<div class="container my-5">
+    <h1 class="mb-4">Manage Departments</h1>
+
+    <!-- Departments Table -->
+    <div class="mb-4">
+        <table class="table table-bordered table-hover">
+            <thead class="table-primary">
+            <tr>
+                <th>#</th>
+                <th>Department Name</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody id="departments-table-body">
+            <!-- Dynamic rows go here -->
+            <tr>
+                <td>1</td>
+                <td>Cardiology</td>
+                <td>Heart and blood vessel treatments</td>
+                <td>
+                    <button class="btn btn-sm btn-warning me-2">Edit</button>
+                    <button class="btn btn-sm btn-danger">Delete</button>
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Neurology</td>
+                <td>Nervous system disorders</td>
+                <td>
+                    <button class="btn btn-sm btn-warning me-2">Edit</button>
+                    <button class="btn btn-sm btn-danger">Delete</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Add / Edit Department Form -->
+    <div class="card p-4">
+        <h4 id="form-title">Add New Department</h4>
+        <form id="department-form">
+            <div class="mb-3">
+                <label for="department-name" class="form-label">Department Name</label>
+                <input
+                        type="text"
+                        id="department-name"
+                        name="departmentName"
+                        class="form-control"
+                        required
+                        placeholder="Enter department name"
+                />
+            </div>
+            <div class="mb-3">
+                <label for="department-desc" class="form-label">Description</label>
+                <textarea
+                        id="department-desc"
+                        name="departmentDescription"
+                        class="form-control"
+                        rows="3"
+                        placeholder="Enter description"
+                ></textarea>
+            </div>
+            <input type="hidden" id="department-id" />
+            <button type="submit" class="btn btn-primary">Save Department</button>
+            <button type="reset" class="btn btn-secondary ms-2">Clear</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    // Your JS code can go here
+</script>
 </body>
 </html>

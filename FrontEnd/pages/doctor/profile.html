@@ -1,10 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>User Profile</title>
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+    />
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        h1 {
+            text-align: center;
+            margin: 2rem 0;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+        .profile-card {
+            max-width: 600px;
+            margin: 2rem auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgb(0 0 0 / 0.1);
+        }
+        label {
+            font-weight: 600;
+            color: #34495e;
+        }
+        input, textarea, select {
+            border-radius: 6px;
+            border: 1.5px solid #ced4da;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+        button.btn-primary {
+            background-color: #007bff;
+            border: none;
+            font-weight: 600;
+            padding: 0.5rem 1.2rem;
+            transition: background-color 0.3s ease;
+        }
+        button.btn-primary:hover {
+            background-color: #0056b3;
+            color: white;
+        }
+    </style>
 </head>
 <body>
-$END$
+<h1>User Profile</h1>
+<div class="profile-card">
+    <form id="profile-form">
+        <div class="mb-3">
+            <label for="full-name" class="form-label">Full Name</label>
+            <input
+                    type="text"
+                    id="full-name"
+                    name="fullName"
+                    class="form-control"
+                    placeholder="Enter full name"
+                    required
+                    value="Dr. Samantha Perera"
+            />
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email Address</label>
+            <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    class="form-control"
+                    placeholder="Enter email"
+                    required
+                    value="samantha.perera@example.com"
+            />
+        </div>
+        <div class="mb-3">
+            <label for="phone" class="form-label">Contact Number</label>
+            <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    class="form-control"
+                    placeholder="+94 77 123 4567"
+                    value="+94 77 123 4567"
+            />
+        </div>
+        <div class="mb-3">
+            <label for="specialty" class="form-label">Specialty</label>
+            <input
+                    type="text"
+                    id="specialty"
+                    name="specialty"
+                    class="form-control"
+                    placeholder="e.g. Cardiologist"
+                    value="Cardiologist"
+            />
+        </div>
+        <div class="mb-3">
+            <label for="department" class="form-label">Department</label>
+            <select id="department" name="department" class="form-select" required>
+                <option value="">Select Department</option>
+                <option value="Cardiology" selected>Cardiology</option>
+                <option value="Neurology">Neurology</option>
+                <option value="Orthopedics">Orthopedics</option>
+                <!-- add more if needed -->
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="address" class="form-label">Address</label>
+            <textarea
+                    id="address"
+                    name="address"
+                    class="form-control"
+                    rows="3"
+                    placeholder="Enter address"
+            >123, Main Street, Colombo, Sri Lanka</textarea>
+        </div>
+        <div class="mb-3">
+            <label for="bio" class="form-label">Bio</label>
+            <textarea
+                    id="bio"
+                    name="bio"
+                    class="form-control"
+                    rows="4"
+                    placeholder="Brief bio or description"
+            >Experienced Cardiologist with 10+ years of practice in heart-related treatments and patient care.</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Update Profile</button>
+    </form>
+</div>
 </body>
 </html>

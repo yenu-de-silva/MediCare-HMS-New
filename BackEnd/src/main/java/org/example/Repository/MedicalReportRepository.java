@@ -1,4 +1,4 @@
-package org.example.Entity;
+package org.example.Repository;
 
 public interface MedicalReportRepository {
 }

@@ -1,10 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Book Appointment</title>
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+    />
+    <style>
+        body {
+            background: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://storage.googleapis.com/kaggle-datasets-images/3316241/5770461/18284268b79fca60c1f2667b87feaa98/dataset-cover.jpg?t=2023-05-25-07-28-22');
+            background-size: cover;
+            background-position: center;
+            filter: blur(25px);
+            z-index: -1;
+        }
+        h1 {
+            margin: 2rem 0;
+            text-align: center;
+            color: #2c3e50;
+            font-weight: 700;
+        }
+        .booking-form {
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgb(0 0 0 / 0.1);
+        }
+        label {
+            font-weight: 600;
+            color: #34495e;
+        }
+        input, select, textarea {
+            border-radius: 6px;
+            border: 1.5px solid #ced4da;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+        button.btn-primary {
+            background-color: #007bff;
+            border: none;
+            font-weight: 600;
+            padding: 0.5rem 1.2rem;
+            transition: background-color 0.3s ease;
+        }
+        button.btn-primary:hover {
+            background-color: #0056b3;
+            color: white;
+        }
+    </style>
 </head>
 <body>
-$END$
+<h1>Book an Appointment</h1>
+<div class="booking-form">
+    <form id="appointment-form">
+        <div class="mb-3">
+            <label for="doctor" class="form-label">Select Doctor</label>
+            <select id="doctor" name="doctor" class="form-select" required>
+                <option value="">Choose a doctor</option>
+                <option value="Dr. Samantha Perera">Dr. Samantha Perera - Cardiologist</option>
+                <option value="Dr. Nimal Silva">Dr. Nimal Silva - Neurologist</option>
+                <option value="Dr. Amal Fernando">Dr. Amal Fernando - Orthopedics</option>
+                <!-- Add more doctors dynamically if needed -->
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="appointment-date" class="form-label">Appointment Date</label>
+            <input type="date" id="appointment-date" name="appointmentDate" class="form-control" required />
+        </div>
+        <div class="mb-3">
+            <label for="appointment-time" class="form-label">Appointment Time</label>
+            <input type="time" id="appointment-time" name="appointmentTime" class="form-control" required />
+        </div>
+        <div class="mb-3">
+            <label for="reason" class="form-label">Reason for Visit</label>
+            <textarea
+                    id="reason"
+                    name="reason"
+                    class="form-control"
+                    rows="3"
+                    placeholder="Describe your symptoms or reason for the appointment"
+                    required
+            ></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Book Appointment</button>
+    </form>
+</div>
 </body>
 </html>

@@ -1,0 +1,43 @@
+/* responsive.css */
+
+/* Ensure tables scroll horizontally on small screens */
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Adjust font sizes for smaller devices */
+@media (max-width: 768px) {
+    h1, h2, h3, h4, h5, h6 {
+        font-size: 90%;
+    }
+
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    /* Stack buttons vertically with spacing on small screens */
+    .btn-group, .btn-toolbar {
+        flex-direction: column !important;
+    }
+    .btn-group > .btn, .btn-toolbar > .btn {
+        margin-bottom: 0.5rem;
+        width: 100%;
+    }
+}
+
+/* Make form inputs full width on very small screens */
+@media (max-width: 480px) {
+    input, select, textarea, button {
+        width: 100% !important;
+        box-sizing: border-box;
+    }
+}
+
+/* Add some padding to tables on mobile */
+@media (max-width: 576px) {
+    table {
+        font-size: 0.85rem;
+    }
+}
